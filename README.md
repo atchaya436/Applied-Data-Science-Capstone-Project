@@ -1,6 +1,6 @@
 # Applied Data Science Capstone Project
 
-##**PROJECT STRUCTURE AND FILES**
+## **PROJECT STRUCTURE AND FILES**
 
 To understand the project better, let's look at its structure. The repository is organized into several key components:
 
@@ -10,7 +10,7 @@ To understand the project better, let's look at its structure. The repository is
 
   * **Final Report/Presentation**: Often, capstone projects like this will include a final report or presentation that summarizes the findings. This could be in the form of a PDF or a PowerPoint file.
 
-##**METHODOLOGY**
+## **METHODOLOGY**
 
 The README provided a high-level overview of the methodology. Here’s a more detailed breakdown of what you would likely find inside the project's notebooks:
 
@@ -58,7 +58,7 @@ Hyperparameter Tuning: Fine-tuning the models to improve their accuracy.
 
 Evaluation: Comparing the performance of the different models to find the best one for the job.
 
-###**LEARNING OUTCOMES**
+### **LEARNING OUTCOMES**
 
 This repository is a great example of a complete, end-to-end data science project. By exploring the code and notebooks, you can learn about:
 
