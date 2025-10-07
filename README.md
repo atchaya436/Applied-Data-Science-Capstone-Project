@@ -22,29 +22,29 @@ The README provided a high-level overview of the methodology. Here’s a more de
 
 * **Data Wrangling and Cleaning**:
 
-This is a crucial step where the raw data is cleaned and prepared for analysis. 
-This involves:
-Handling Missing Values: Dealing with any gaps in the collected data.
-Feature Engineering: Creating new variables from the existing data that might be useful for prediction.
-One-Hot Encoding: Converting categorical data (like launch sites) into a numerical format that machine learning models can understand.
+    This is a crucial step where the raw data is cleaned and prepared for analysis. 
+    This involves:
+    Handling Missing Values: Dealing with any gaps in the collected data.
+    Feature Engineering: Creating new variables from the existing data that might be useful for prediction.
+    One-Hot Encoding: Converting categorical data (like launch sites) into a numerical format that machine learning models can understand.
 
 * **Exploratory Data Analysis (EDA)**:
 
-This is where the project really dives into the data to uncover patterns and insights. You would see a lot of data visualization using libraries like Matplotlib and Seaborn to answer questions like:
-
-Which launch site has the highest success rate?
-
-Is there a relationship between payload mass and landing success?
-
-How has the success rate of landings changed over time?
-
-SQL queries might also be used to filter and aggregate the data for analysis.
+    This is where the project really dives into the data to uncover patterns and insights. You would see a lot of data visualization using libraries like Matplotlib and Seaborn to answer questions like:
+    
+    Which launch site has the highest success rate?
+    
+    Is there a relationship between payload mass and landing success?
+    
+    How has the success rate of landings changed over time?
+    
+    SQL queries might also be used to filter and aggregate the data for analysis.
 
 * **Interactive Visualizations**:
 
-To make the data more engaging, the project uses libraries like Folium to create interactive maps of the launch sites.
-
-Plotly Dash is used to build a web-based dashboard where users can interact with the data and visualizations.
+   To make the data more engaging, the project uses libraries like Folium to create interactive maps of the launch sites.
+   
+   Plotly Dash is used to build a web-based dashboard where users can interact with the data and visualizations.
 
 * **Machine Learning Prediction**:
 
