@@ -48,15 +48,15 @@ Plotly Dash is used to build a web-based dashboard where users can interact with
 
 * **Machine Learning Prediction**:
 
-This is the core of the project, where different machine learning models are built and tested to predict the success of a first-stage landing. The typical steps are:
+  This is the core of the project, where different machine learning models are built and tested to predict the success of a first-stage landing. The typical steps are:
 
-Model Selection: Choosing several classification algorithms to test, such as Logistic Regression, Support Vector Machines (SVM), Decision Trees, and K-Nearest Neighbors (KNN).
+  Model Selection: Choosing several classification algorithms to test, such as Logistic Regression, Support Vector Machines (SVM), Decision Trees, and K-Nearest Neighbors (KNN).
 
-Training and Testing: The data is split into a training set (to build the models) and a testing set (to evaluate their performance).
+  Training and Testing: The data is split into a training set (to build the models) and a testing set (to evaluate their performance).
 
-Hyperparameter Tuning: Fine-tuning the models to improve their accuracy.
+  Hyperparameter Tuning: Fine-tuning the models to improve their accuracy.
 
-Evaluation: Comparing the performance of the different models to find the best one for the job.
+  Evaluation: Comparing the performance of the different models to find the best one for the job.
 
 ### **LEARNING OUTCOMES**
 
