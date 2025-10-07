@@ -60,14 +60,14 @@ Evaluation: Comparing the performance of the different models to find the best o
 
 ### **LEARNING OUTCOMES**
 
-This repository is a great example of a complete, end-to-end data science project. By exploring the code and notebooks, you can learn about:
+* This repository is a great example of a complete, end-to-end data science project. By exploring the code and notebooks, you can learn about:
 
-Real-world data collection using APIs and web scraping.
+* Real-world data collection using APIs and web scraping.
 
-Data cleaning and preparation techniques.
+* Data cleaning and preparation techniques.
 
-In-depth data analysis and visualization.
+* In-depth data analysis and visualization.
 
-Building and evaluating machine learning models for a classification problem.
+* Building and evaluating machine learning models for a classification problem.
 
-How to structure and document a data science project.
+* How to structure and document a data science project.
