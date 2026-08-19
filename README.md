@@ -1,73 +1,46 @@
-# Applied Data Science Capstone Project
+# Applied Data Science Capstone: SpaceX Falcon 9 Landing Prediction
 
-## **PROJECT STRUCTURE AND FILES**
+Predicts whether SpaceX's Falcon 9 first stage will land successfully, using historical launch data. A successful landing means the booster can be reused, which is the main reason SpaceX can offer launches at a fraction of the cost of competitors — so predicting landing success is effectively a proxy for predicting launch cost.
 
-To understand the project better, let's look at its structure. The repository is organized into several key components:
+## Project Structure
 
-  * **Jupyter Notebooks**: The core of the project is a series of Jupyter Notebooks that walk through each step of the data science process. These notebooks are interactive and contain the Python code, visualizations, and explanations for each stage of the project.
+| Notebook / File | What it does |
+|---|---|
+| `Data Collection API.ipynb` | Pulls historical launch data from the SpaceX REST API |
+| `Data Collection with Web Scraping.ipynb` | Scrapes supplementary Falcon 9 launch records from Wikipedia with BeautifulSoup |
+| `Data Wrangling.ipynb` | Cleans and prepares the combined dataset, engineers the binary landing-outcome label |
+| `EDA with Data Visualization.ipynb` | Explores relationships between flight number, payload mass, launch site, and landing outcome using Seaborn |
+| `EDA with SQL.ipynb` | SQL queries against the launch dataset to answer specific questions (e.g. success rate by site) |
+| `Interactive Visual Analytics with Folium.ipynb` | Interactive map of launch sites and their proximity to coastlines, highways, and railways |
+| `Machine Learning Prediction.ipynb` | Trains and tunes 4 classification models to predict landing outcome |
+| `dash_app.py` | Interactive Plotly Dash dashboard — dropdown site selector, payload range slider, live-updating pie and scatter charts |
+| `Capstone_Presentation.pdf` | Final summary presentation of methodology and results |
 
-  * **Data Files**: The repository likely contains the datasets used for the analysis, which would include data collected from the SpaceX API and web scraping. This data would be in a format like a CSV file.
+## Machine Learning Results
 
-  * **Final Report/Presentation**: Often, capstone projects like this will include a final report or presentation that summarizes the findings. This could be in the form of a PDF or a PowerPoint file.
+Four classification models were tuned via `GridSearchCV` (10-fold cross-validation) on an 80/20 train/test split:
 
-## **METHODOLOGY**
+| Model | Best CV Accuracy | Test Accuracy |
+|---|---|---|
+| Logistic Regression | 84.6% | 83.3% |
+| SVM (sigmoid kernel) | 84.8% | 83.3% |
+| **Decision Tree** | **88.9%** | 83.3% |
+| KNN | 84.8% | 83.3% |
 
-The README provided a high-level overview of the methodology. Here’s a more detailed breakdown of what you would likely find inside the project's notebooks:
+All four models scored identically on the held-out test set (83.3% accuracy, F1 = 0.889) — expected given the small test set size (18 samples). To break the tie, all models were also evaluated on the full dataset, where the **Decision Tree classifier performed best** (91.1% accuracy, 0.938 F1, 0.882 Jaccard score), making it the selected final model.
 
-* **Data Collection**:
+## Interactive Dashboard
 
-    * **SpaceX API**: The project uses the SpaceX REST API to gather detailed information about past launches. This would include data points like launch dates, rocket details, payload information, and launch sites.
+`dash_app.py` is a Plotly Dash app with:
+- A launch-site dropdown (All Sites, CCAFS LC-40, VAFB SLC-4E, KSC LC-39A, CCAFS SLC-40)
+- A live-updating pie chart of success rate by site
+- A payload-mass range slider
+- A scatter plot correlating payload mass with landing outcome, colored by booster version
 
-    * **Web Scraping**: To supplement the API data, the project likely uses web scraping techniques (with libraries like BeautifulSoup in Python) to extract additional information from web pages like Wikipedia.
+## Tools & Libraries
 
-* **Data Wrangling and Cleaning**:
+Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, SQL, BeautifulSoup, Folium, Plotly Dash
 
-    This is a crucial step where the raw data is cleaned and prepared for analysis. 
-    This involves:
-    Handling Missing Values: Dealing with any gaps in the collected data.
-    Feature Engineering: Creating new variables from the existing data that might be useful for prediction.
-    One-Hot Encoding: Converting categorical data (like launch sites) into a numerical format that machine learning models can understand.
+## Key Takeaway
 
-* **Exploratory Data Analysis (EDA)**:
-
-    This is where the project really dives into the data to uncover patterns and insights. You would see a lot of data visualization using libraries like Matplotlib and Seaborn to answer questions like:
-    
-    Which launch site has the highest success rate?
-    
-    Is there a relationship between payload mass and landing success?
-    
-    How has the success rate of landings changed over time?
-    
-    SQL queries might also be used to filter and aggregate the data for analysis.
-
-* **Interactive Visualizations**:
-
-   To make the data more engaging, the project uses libraries like Folium to create interactive maps of the launch sites.
-   
-   Plotly Dash is used to build a web-based dashboard where users can interact with the data and visualizations.
-
-* **Machine Learning Prediction**:
-
-  This is the core of the project, where different machine learning models are built and tested to predict the success of a first-stage landing. The typical steps are:
-
-  Model Selection: Choosing several classification algorithms to test, such as Logistic Regression, Support Vector Machines (SVM), Decision Trees, and K-Nearest Neighbors (KNN).
-
-  Training and Testing: The data is split into a training set (to build the models) and a testing set (to evaluate their performance).
-
-  Hyperparameter Tuning: Fine-tuning the models to improve their accuracy.
-
-  Evaluation: Comparing the performance of the different models to find the best one for the job.
-
-### **LEARNING OUTCOMES**
-
-* This repository is a great example of a complete, end-to-end data science project. By exploring the code and notebooks, you can learn about:
-
-* Real-world data collection using APIs and web scraping.
-
-* Data cleaning and preparation techniques.
-
-* In-depth data analysis and visualization.
-
-* Building and evaluating machine learning models for a classification problem.
-
-* How to structure and document a data science project.
+Booster reuse (successful landing) is central to SpaceX's cost advantage — Falcon 9 launches are priced at $62M versus $165M+ for comparable competitor launches, largely because SpaceX can recover and refly the first stage. This project frames landing prediction as a proxy for that cost advantage.
